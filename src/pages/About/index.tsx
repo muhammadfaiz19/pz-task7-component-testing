@@ -1,4 +1,4 @@
-import profile from "../../assets/L.png";
+import profile from "../../assets/p.png";
 
 const About = () => {
   return (
@@ -14,7 +14,7 @@ const About = () => {
           <img
             src={profile}
             alt="Profile"
-            className="relative z-10 w-64 h-64 object-cover rounded-full border-4 border-white group-hover:scale-105 transition-transform duration-500 ease-in-out"
+            className="relative z-10 w-72 h-72 object-cover rounded-full border-4 border-text group-hover:scale-105 transition-transform duration-500 ease-in-out"
           />
         </div>
       </div>
