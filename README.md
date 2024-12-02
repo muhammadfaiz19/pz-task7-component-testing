@@ -1,7 +1,7 @@
 # Task7 - ProductZilla - ReactJS Testing & Component Testing
 
 ## CI-CD Status
-![Build Status](https://github.com/Muhammadfaiz19/pz-task7-component-testing/actions/workflows/ci-cd.yml/badge.svg)
+[![Build Status](https://github.com/muhammadfaiz19/pz-task7-component-testing/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/muhammadfaiz19/pz-task7-component-testing/actions/workflows/ci-cd.yml)
 
 ## Testing
 ![Test Image](https://github.com/muhammadfaiz19/pz-task7-component-testing/raw/main/src/assets/test.png)
