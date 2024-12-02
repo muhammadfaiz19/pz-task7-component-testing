@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1733132162783" clover="3.2.0">
-  <project timestamp="1733132162784" name="All files">
+<coverage generated="1733132664616" clover="3.2.0">
+  <project timestamp="1733132664616" name="All files">
     <metrics statements="39" coveredstatements="39" conditionals="13" coveredconditionals="13" methods="17" coveredmethods="17" elements="69" coveredelements="69" complexity="0" loc="39" ncloc="39" packages="12" files="14" classes="14"/>
     <package name="src">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -22,7 +22,7 @@
       <file name="index.tsx" path="C:\Users\Paiss\Desktop\pz-task7-component-testing\src\components\Button\index.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="10" count="5" type="stmt"/>
-        <line num="11" count="27" type="stmt"/>
+        <line num="11" count="24" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Footer">
@@ -38,11 +38,11 @@
       <file name="index.tsx" path="C:\Users\Paiss\Desktop\pz-task7-component-testing\src\components\Form\index.tsx">
         <metrics statements="6" coveredstatements="6" conditionals="9" coveredconditionals="9" methods="2" coveredmethods="2"/>
         <line num="5" count="3" type="stmt"/>
-        <line num="7" count="20" type="stmt"/>
+        <line num="7" count="16" type="stmt"/>
         <line num="21" count="2" type="stmt"/>
         <line num="22" count="2" type="stmt"/>
         <line num="25" count="2" type="stmt"/>
-        <line num="29" count="19" type="stmt"/>
+        <line num="29" count="16" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Hero">

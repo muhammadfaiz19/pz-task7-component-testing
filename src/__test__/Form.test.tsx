@@ -1,6 +1,6 @@
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor, act } from "@testing-library/react";
 import Form from "../components/Form";
-import "@testing-library/jest-dom"
+import "@testing-library/jest-dom";
 
 global.alert = jest.fn();
 
@@ -17,7 +17,9 @@ describe("Form Component", () => {
   it("shows validation errors when the form is submitted with missing data", async () => {
     render(<Form />);
 
-    fireEvent.click(screen.getByRole("button", { name: /send message/i }));
+    act(() => {
+      fireEvent.click(screen.getByRole("button", { name: /send message/i }));
+    });
 
     // Memastikan pesan kesalahan muncul untuk field yang kosong
     expect(await screen.findByText(/name is required/i)).toBeInTheDocument();
@@ -39,22 +41,17 @@ describe("Form Component", () => {
       target: { value: "Hello, this is a test message." },
     });
 
-    // Klik tombol kirim
-    fireEvent.click(screen.getByRole("button", { name: /send message/i }));
+    // Klik tombol kirim di dalam act()
+    await act(async () => {
+      fireEvent.click(screen.getByRole("button", { name: /send message/i }));
+    });
 
     // Tunggu dan pastikan alert dipanggil setelah submit
     await waitFor(() => expect(global.alert).toHaveBeenCalledWith("Your message has been sent successfully!"));
 
     // Pastikan form sudah direset
-fireEvent.change(screen.getByPlaceholderText("Your Name") as HTMLInputElement, {
-  target: { value: "John Doe" },
-});
-fireEvent.change(screen.getByPlaceholderText("Your Email") as HTMLInputElement, {
-  target: { value: "john.doe@example.com" },
-});
-fireEvent.change(screen.getByPlaceholderText("Your Message") as HTMLTextAreaElement, {
-  target: { value: "Hello, this is a test message." },
-});
-
+    expect(screen.getByPlaceholderText("Your Name").value).toBe("");
+    expect(screen.getByPlaceholderText("Your Email").value).toBe("");
+    expect(screen.getByPlaceholderText("Your Message").value).toBe("");
   });
 });
