@@ -1,35 +1,35 @@
-# Gunakan image node untuk tahap build
+# Build stage
 FROM node:18 AS build
 
 # Set working directory
 WORKDIR /app
 
-# Salin package.json dan package-lock.json
+# Copy package.json and package-lock.json
 COPY package.json package-lock.json ./
 
-# Install dependencies
-RUN npm install
+# Install dependencies using npm ci (faster and more reliable in CI/CD)
+RUN npm ci
 
-# Salin semua file source
+# Copy the rest of the source code
 COPY . .
 
-# Build project
+# Build the application
 RUN npm run build
 
-# Stage untuk image production
+# Production stage
 FROM node:18-slim
 
 # Set working directory
 WORKDIR /app
 
-# Salin hasil build dari stage sebelumnya
+# Copy the built app from the build stage
 COPY --from=build /app /app
 
-# Install production dependencies
+# Install only production dependencies
 RUN npm install --production
 
-# Exposure port
+# Expose the port your application will run on
 EXPOSE 3000
 
-# Jalankan aplikasi
-CMD ["npm", "run", "dev"]
+# Start the application (make sure this matches your production start script)
+CMD ["npm", "run", "start"]
