@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">85.71% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>6/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>2/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">85.71% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>6/7</span>
             </div>
         
             
@@ -159,17 +159,33 @@
 <a name='L94'></a><a href='#L94'>94</a>
 <a name='L95'></a><a href='#L95'>95</a>
 <a name='L96'></a><a href='#L96'>96</a>
-<a name='L97'></a><a href='#L97'>97</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a>
+<a name='L100'></a><a href='#L100'>100</a>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a>
+<a name='L103'></a><a href='#L103'>103</a>
+<a name='L104'></a><a href='#L104'>104</a>
+<a name='L105'></a><a href='#L105'>105</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -256,7 +272,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState } from "react";
-import { FaBars } from "react-icons/fa"; 
+import { FaBars, FaTimes } from "react-icons/fa"; 
+import { Link } from "react-router-dom";
 &nbsp;
 const Navbar: React.FC = () =&gt; {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -265,41 +282,45 @@ const Navbar: React.FC = () =&gt; {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
 &nbsp;
+  const closeMobileMenu = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >    setMobileMenuOpen(false);</span>
+  };
+&nbsp;
   return (
     &lt;nav className="bg-primary shadow-md sticky top-0 z-50"&gt;
       &lt;div className="container mx-auto flex items-center justify-between p-4"&gt;
         &lt;h1 className="text-text text-xl md:text-2xl font-bold"&gt;
-          &lt;a href="/" data-testid="navbar-brand"&gt;
+          &lt;Link to="/" data-testid="navbar-brand"&gt;
             Muhammad Faiz
-          &lt;/a&gt;
+          &lt;/Link&gt;
         &lt;/h1&gt;
         &lt;ul className="hidden md:flex space-x-6 text-text text-lg font-medium"&gt;
           &lt;li&gt;
-            &lt;a
+            &lt;Link
+              to="/"
               className="relative transition duration-300 text-white border-b-2 border-white"
-              href="/"
               data-testid="desktop-menu-home"
             &gt;
               Home
-            &lt;/a&gt;
+            &lt;/Link&gt;
           &lt;/li&gt;
           &lt;li&gt;
-            &lt;a
+            &lt;Link
+              to="/about"
               className="relative transition duration-300 text-text hover:text-white hover:bg-secondary rounded-lg px-2 py-1"
-              href="/about"
               data-testid="desktop-menu-about"
             &gt;
               About
-            &lt;/a&gt;
+            &lt;/Link&gt;
           &lt;/li&gt;
           &lt;li&gt;
-            &lt;a
+            &lt;Link
+              to="/contact"
               className="relative transition duration-300 text-text hover:text-white hover:bg-secondary rounded-lg px-2 py-1"
-              href="/contact"
               data-testid="desktop-menu-contact"
             &gt;
               Contact
-            &lt;/a&gt;
+            &lt;/Link&gt;
           &lt;/li&gt;
         &lt;/ul&gt;
         &lt;button
@@ -307,7 +328,7 @@ const Navbar: React.FC = () =&gt; {
           onClick={toggleMobileMenu}
           data-testid="menu-toggle-button"
         &gt;
-          &lt;FaBars /&gt; 
+          {isMobileMenuOpen ? &lt;FaTimes /&gt; : &lt;FaBars /&gt;}
         &lt;/button&gt;
       &lt;/div&gt;
       {isMobileMenuOpen &amp;&amp; (
@@ -317,31 +338,34 @@ const Navbar: React.FC = () =&gt; {
         &gt;
           &lt;ul className="flex flex-col space-y-4 text-text text-lg font-medium w-full p-6"&gt;
             &lt;li className="w-full"&gt;
-              &lt;a
+              &lt;Link
+                to="/"
+                onClick={closeMobileMenu} 
                 className="block text-center py-3 rounded-lg transition duration-300 bg-white text-primary"
-                href="/"
                 data-testid="mobile-menu-home"
               &gt;
                 Home
-              &lt;/a&gt;
+              &lt;/Link&gt;
             &lt;/li&gt;
             &lt;li className="w-full"&gt;
-              &lt;a
+              &lt;Link
+                to="/about"
+                onClick={closeMobileMenu} 
                 className="block text-center py-3 rounded-lg transition duration-300 hover:bg-white hover:text-primary"
-                href="/about"
                 data-testid="mobile-menu-about"
               &gt;
                 About
-              &lt;/a&gt;
+              &lt;/Link&gt;
             &lt;/li&gt;
             &lt;li className="w-full"&gt;
-              &lt;a
+              &lt;Link
+                to="/contact"
+                onClick={closeMobileMenu} 
                 className="block text-center py-3 rounded-lg transition duration-300 hover:bg-white hover:text-primary"
-                href="/contact"
                 data-testid="mobile-menu-contact"
               &gt;
                 Contact
-              &lt;/a&gt;
+              &lt;/Link&gt;
             &lt;/li&gt;
           &lt;/ul&gt;
         &lt;/div&gt;
@@ -358,7 +382,7 @@ export default Navbar;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-12-02T10:37:02.530Z
+                at 2024-12-02T15:15:11.950Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

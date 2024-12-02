@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { FaBars } from "react-icons/fa"; 
+import { FaBars, FaTimes } from "react-icons/fa"; 
+import { Link } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -8,41 +9,45 @@ const Navbar: React.FC = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+  };
+
   return (
     <nav className="bg-primary shadow-md sticky top-0 z-50">
       <div className="container mx-auto flex items-center justify-between p-4">
         <h1 className="text-text text-xl md:text-2xl font-bold">
-          <a href="/" data-testid="navbar-brand">
+          <Link to="/" data-testid="navbar-brand">
             Muhammad Faiz
-          </a>
+          </Link>
         </h1>
         <ul className="hidden md:flex space-x-6 text-text text-lg font-medium">
           <li>
-            <a
+            <Link
+              to="/"
               className="relative transition duration-300 text-white border-b-2 border-white"
-              href="/"
               data-testid="desktop-menu-home"
             >
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
+              to="/about"
               className="relative transition duration-300 text-text hover:text-white hover:bg-secondary rounded-lg px-2 py-1"
-              href="/about"
               data-testid="desktop-menu-about"
             >
               About
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
+              to="/contact"
               className="relative transition duration-300 text-text hover:text-white hover:bg-secondary rounded-lg px-2 py-1"
-              href="/contact"
               data-testid="desktop-menu-contact"
             >
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
         <button
@@ -50,7 +55,7 @@ const Navbar: React.FC = () => {
           onClick={toggleMobileMenu}
           data-testid="menu-toggle-button"
         >
-          <FaBars /> 
+          {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
         </button>
       </div>
       {isMobileMenuOpen && (
@@ -60,31 +65,34 @@ const Navbar: React.FC = () => {
         >
           <ul className="flex flex-col space-y-4 text-text text-lg font-medium w-full p-6">
             <li className="w-full">
-              <a
+              <Link
+                to="/"
+                onClick={closeMobileMenu} 
                 className="block text-center py-3 rounded-lg transition duration-300 bg-white text-primary"
-                href="/"
                 data-testid="mobile-menu-home"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li className="w-full">
-              <a
+              <Link
+                to="/about"
+                onClick={closeMobileMenu} 
                 className="block text-center py-3 rounded-lg transition duration-300 hover:bg-white hover:text-primary"
-                href="/about"
                 data-testid="mobile-menu-about"
               >
                 About
-              </a>
+              </Link>
             </li>
             <li className="w-full">
-              <a
+              <Link
+                to="/contact"
+                onClick={closeMobileMenu} 
                 className="block text-center py-3 rounded-lg transition duration-300 hover:bg-white hover:text-primary"
-                href="/contact"
                 data-testid="mobile-menu-contact"
               >
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
