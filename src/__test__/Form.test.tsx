@@ -1,4 +1,10 @@
-import { render, screen, fireEvent, waitFor, act } from "@testing-library/react";
+import {
+  render,
+  screen,
+  fireEvent,
+  waitFor,
+  act,
+} from "@testing-library/react";
 import Form from "../components/Form";
 import "@testing-library/jest-dom";
 
@@ -47,11 +53,26 @@ describe("Form Component", () => {
     });
 
     // Tunggu dan pastikan alert dipanggil setelah submit
-    await waitFor(() => expect(global.alert).toHaveBeenCalledWith("Your message has been sent successfully!"));
+    await waitFor(() =>
+      expect(global.alert).toHaveBeenCalledWith(
+        "Your message has been sent successfully!"
+      )
+    );
 
-    // Pastikan form sudah direset
-    expect(screen.getByPlaceholderText("Your Name").value).toBe("");
-    expect(screen.getByPlaceholderText("Your Email").value).toBe("");
-    expect(screen.getByPlaceholderText("Your Message").value).toBe("");
+    // For input elements
+    const nameInput = screen.getByPlaceholderText(
+      "Your Name"
+    ) as HTMLInputElement;
+    const emailInput = screen.getByPlaceholderText(
+      "Your Email"
+    ) as HTMLInputElement;
+    const messageInput = screen.getByPlaceholderText(
+      "Your Message"
+    ) as HTMLTextAreaElement;
+
+    // Then use `value` safely
+    expect(nameInput.value).toBe("");
+    expect(emailInput.value).toBe("");
+    expect(messageInput.value).toBe("");
   });
 });
