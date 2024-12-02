@@ -1,0 +1,58 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main  # Trigger workflow pada push ke main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout source code
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    # Set up Node.js
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    # Install dependencies
+    - name: Install Dependencies
+      run: npm install
+
+    # Run linting (optional)
+    - name: Run Lint
+      run: npm run lint
+
+    # Run tests (optional)
+    - name: Run Tests
+      run: npm run test
+
+    # Build the application
+    - name: Build the Application
+      run: npm run build
+
+    # Log in to Docker Hub
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    # Set up Docker Compose
+    - name: Set up Docker Compose
+      run: |
+        sudo apt-get install -y docker-compose
+
+    # Build Docker Compose services
+    - name: Build Docker Compose
+      run: docker-compose -f docker-compose.yml build
+
+    # Push Docker Image to Docker Hub
+    - name: Push Docker Image
+      run: |
+        docker-compose -f docker-compose.yml push
