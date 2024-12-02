@@ -79,7 +79,7 @@ const Form: React.FC = () => {
       </div>
 
       <Button
-        type="button"
+        type="submit"
         title="Send Message"
         onClick={formik.handleSubmit}
         width="w-full"

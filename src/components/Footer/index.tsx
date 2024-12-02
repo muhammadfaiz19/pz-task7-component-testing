@@ -14,6 +14,7 @@ const Footer: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="text-text text-2xl hover:text-pink-500 transition duration-300"
+            aria-label="Instagram"  
           >
             <SiInstagram />
           </a>
@@ -22,6 +23,7 @@ const Footer: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="text-text text-2xl hover:text-blue-500 transition duration-300"
+            aria-label="LinkedIn"  
           >
             <SiLinkedin />
           </a>
